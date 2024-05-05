@@ -498,16 +498,37 @@ String _buildEnglishText(LoadMoreStatus status) {
   String text;
   switch (status) {
     case LoadMoreStatus.fail:
-      text = "load fail, tap to retry";
+      text = "Load fail, tap to retry";
       break;
     case LoadMoreStatus.idle:
-      text = "wait for loading";
+      text = "Wait for loading";
       break;
     case LoadMoreStatus.loading:
-      text = "loading, wait for moment ...";
+      text = "Loading, wait for moment ...";
       break;
     case LoadMoreStatus.nomore:
-      text = "no more data";
+      text = "No more data";
+      break;
+    default:
+      text = "";
+  }
+  return text;
+}
+
+String _buildVietnameseText(LoadMoreStatus status) {
+  String text;
+  switch (status) {
+    case LoadMoreStatus.fail:
+      text = "Chạm để thử lại";
+      break;
+    case LoadMoreStatus.idle:
+      text = "Đang tải dữ liệu";
+      break;
+    case LoadMoreStatus.loading:
+      text = "Đang tải dữ liệu";
+      break;
+    case LoadMoreStatus.nomore:
+      text = "Cuối trang rồi bạn nhé";
       break;
     default:
       text = "";
@@ -519,4 +540,6 @@ class DefaultLoadMoreTextBuilder {
   static const LoadMoreTextBuilder chinese = _buildChineseText;
 
   static const LoadMoreTextBuilder english = _buildEnglishText;
+
+  static const LoadMoreTextBuilder vietnamese = _buildVietnameseText;
 }
